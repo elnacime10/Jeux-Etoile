@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="description" content="Étoile Filante — un petit jeu de plateforme 3D pour les enfants." />
+  <meta name="theme-color" content="#1b1a3d" />
+  <title>Étoile Filante — Aventure 3D</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/main.css" />
+
+  <!--
+    Import map : permet d'écrire `import * as THREE from 'three'` dans tous les
+    modules, exactement comme avec un bundler, mais sans étape de build.
+    Choix assumé : le projet reste lisible et modifiable par n'importe qui,
+    sans npm install. Pour passer en production, il suffira de remplacer cette
+    URL par un chemin local ou d'ajouter Vite sans toucher aux imports.
+  -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <canvas id="game-canvas" aria-label="Scène de jeu 3D" role="img"></canvas>
+    <div id="ui-root" class="ui"></div>
+
+    <!-- Retiré par main.js dès que le jeu a démarré. -->
+    <div id="boot-loader" class="boot-loader">
+      <span class="boot-loader__star" aria-hidden="true">★</span>
+      <p>Chargement…</p>
+    </div>
+  </div>
+
+  <noscript>
+    <p style="padding:2rem;font-family:sans-serif">Ce jeu a besoin de JavaScript pour fonctionner.</p>
+  </noscript>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
